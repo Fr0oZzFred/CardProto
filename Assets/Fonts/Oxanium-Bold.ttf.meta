@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2ed8f8b5ea2c8b240bf2453c1a005e7f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Oxanium
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ba7345c8351ed3342b5e3d19701bf7a0, type: 3}
+  - {fileID: 12800000, guid: 056ef2cb298ef8444b59000602e39b02, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

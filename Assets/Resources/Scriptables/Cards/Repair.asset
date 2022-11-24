@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4061eb5198a18ec42a5d6ef76ae2b9a3, type: 3}
+  m_Name: Repair
+  m_EditorClassIdentifier: 
+  cardName: "R\xE9paration"
+  cost: 2
+  artwork: {fileID: 21300000, guid: 5a1fc17299ebf55459023f915f9b4693, type: 3}
+  description: Soigne {0}
+  values: 03000000
+  effects:
+  - effect: {fileID: 11400000, guid: 28fb87d78b97e8e47ac8e45e689f2884, type: 2}
+    valuesIndex: 00000000
+    fx: {fileID: 4312754960995376076, guid: 6a3e60fa50789f9498ca4b47e686f5a7, type: 3}
