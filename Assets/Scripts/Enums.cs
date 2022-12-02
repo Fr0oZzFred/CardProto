@@ -13,3 +13,9 @@ public enum EEnemyActionOrder
     Random,
     Linear
 }
+
+public enum EEffectOrder
+{
+    BeginTurn,
+    EndTurn
+}

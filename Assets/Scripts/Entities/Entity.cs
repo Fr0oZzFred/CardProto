@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
@@ -20,12 +21,22 @@ public class Entity : MonoBehaviour
 
     protected EntityUI _ui = null;
 
+    protected Dictionary<Effect_SO, int> _beginTurnEffects = null;
+    protected Dictionary<Effect_SO, int> _endTurnEffects = null;
+
     protected int _health = 0;
     protected int _maxHealth = 0;
     protected int _shield = 0;
     protected int _energy = 0;
+    protected bool _isDead = false;
 
-    private void Update()
+    protected virtual void Start()
+    {
+        _beginTurnEffects= new Dictionary<Effect_SO, int>();
+        _endTurnEffects= new Dictionary<Effect_SO, int>();
+    }
+
+    protected virtual void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
@@ -60,7 +71,7 @@ public class Entity : MonoBehaviour
 
         _health -= RemoveShield(amount);
 
-        if(_health <= 0)
+        if (_health <= 0)
         {
             _health = 0;
             Die();
@@ -108,7 +119,7 @@ public class Entity : MonoBehaviour
 
         int diff = _shield - amount;
 
-        if(diff <= 0)
+        if (diff <= 0)
         {
             _shield = 0;
             BreakShield();
@@ -149,9 +160,13 @@ public class Entity : MonoBehaviour
     /// </summary>
     protected virtual void Die()
     {
+        _isDead = true;
         Instantiate(_explosionFx, transform.position, Quaternion.identity);
         _shipSprite.gameObject.SetActive(false);
         _shipSprite.gameObject.SetActive(false);
+        _beginTurnEffects.Clear();
+        _endTurnEffects.Clear();
+        _ui.ClearEffects();
         onDeath?.Invoke();
         StartCoroutine(DieCorout());
     }
@@ -186,7 +201,17 @@ public class Entity : MonoBehaviour
     /// </summary>
     public virtual void BeginTurn()
     {
+        //Create new dictionary to avoid direct reference
+        Dictionary<Effect_SO, int> effects = new Dictionary<Effect_SO, int>();
+        foreach (Effect_SO e in _beginTurnEffects.Keys)
+        {
+            effects.Add(e, _beginTurnEffects[e]);
+        }
 
+        foreach (Effect_SO effect in effects.Keys)
+        {
+            effect.Tick(this, _beginTurnEffects[effect]);
+        }
     }
 
     /// <summary>
@@ -205,6 +230,87 @@ public class Entity : MonoBehaviour
     {
         _energy = 0;
         _ui.ChangeEnergy(_energy);
+
+        //Create new dictionary to avoid direct reference
+        Dictionary<Effect_SO, int> effects = new Dictionary<Effect_SO, int>();
+        foreach (Effect_SO e in _endTurnEffects.Keys)
+        {
+            effects.Add(e, _endTurnEffects[e]);
+        }
+
+        foreach (Effect_SO effect in _endTurnEffects.Keys)
+        {
+            effect.Tick(this, _endTurnEffects[effect]);
+        }
+    }
+    #endregion
+
+    #region Effects
+    /// <summary>
+    /// Adds an effect, if there is already one of this effect, just adds the stacks
+    /// </summary>
+    public void AddEffect(Effect_SO effect, int nb)
+    {
+        Dictionary<Effect_SO, int> effects = effect.order == EEffectOrder.BeginTurn ? _beginTurnEffects: _endTurnEffects;
+
+        if (effects.ContainsKey(effect))
+        {
+            //If there is already this effect, just add the number to the stack
+            effects[effect] += nb;
+
+            _ui.UpdateEffect(effect, effects[effect]);
+        }
+        else
+        {
+            //Create a new effect
+            effects.Add(effect, nb);
+
+            _ui.AddEffect(effect, nb);
+        }
+    }
+
+    /// <summary>
+    /// Removes the specifed effect if possible
+    /// </summary>
+    public void RemoveEffect(Effect_SO effect)
+    {
+        Dictionary<Effect_SO, int> effects = effect.order == EEffectOrder.BeginTurn ? _beginTurnEffects : _endTurnEffects;
+
+        if(effects.ContainsKey(effect))
+        {
+            effects.Remove(effect);
+            _ui.RemoveEffect(effect);
+        }
+    }
+
+    /// <summary>
+    /// Removes some stacks to the effect, removes the effect if necessary
+    /// </summary>
+    public void RemoveStackFromEffect(Effect_SO effect, int nb)
+    {
+        Dictionary<Effect_SO, int> effects = effect.order == EEffectOrder.BeginTurn ? _beginTurnEffects : _endTurnEffects;
+
+        if (effects.ContainsKey(effect))
+        {
+            effects[effect] -= nb;
+            _ui.UpdateEffect(effect, effects[effect]);
+
+            if (effects[effect] <= 0)
+                RemoveEffect(effect);
+        }
+    }
+
+    /// <summary>
+    /// Returns the number of stacks of the specified effect, 0 if the effect is not present
+    /// </summary>
+    public int GetStackNumber(Effect_SO effect)
+    {
+        Dictionary<Effect_SO, int> effects = effect.order == EEffectOrder.BeginTurn ? _beginTurnEffects : _endTurnEffects;
+
+        if(effects.ContainsKey(effect))
+            return effects[effect];
+        else
+            return 0;
     }
     #endregion
 
@@ -216,5 +322,6 @@ public class Entity : MonoBehaviour
     public int MaxHealth => _maxHealth;
     public int Shield => _shield;
     public int Energy => _energy;
+    public bool IsDead => _isDead;
     #endregion
 }

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3099d9beaafdf4cadf6d15d6de2a09, type: 3}
+  m_Name: Acid
+  m_EditorClassIdentifier: 
+  order: 0
+  icon: {fileID: 21300000, guid: cfac89c95a6236744aec0bbd8ba0d0d9, type: 3}
+  fx: {fileID: 6542513377236042348, guid: 5f513eda36e9dae41b1afcfde6198348, type: 3}

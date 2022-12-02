@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New deal damage", menuName = "Effects/Deal damage")]
-public class Effect_DealDamage : CardEffect_SO
+[CreateAssetMenu(fileName = "New deal damage", menuName = "Card effects/Deal damage")]
+public class CardEffect_DealDamage : CardEffect_SO
 {
     public override bool DoEffect(Entity sender, Entity target, int[] values, GameObject fx)
     {

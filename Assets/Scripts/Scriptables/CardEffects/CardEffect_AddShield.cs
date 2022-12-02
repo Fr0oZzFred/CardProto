@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New add shield", menuName = "Effects/Add shield")]
-public class Effect_AddShield : CardEffect_SO
+[CreateAssetMenu(fileName = "New add shield", menuName = "Card effects/Add shield")]
+public class CardEffect_AddShield : CardEffect_SO
 {
     public override bool DoEffect(Entity sender, Entity target, int[] values, GameObject fx)
     {
