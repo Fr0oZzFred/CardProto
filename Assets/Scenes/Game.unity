@@ -1361,6 +1361,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af48966415acdea45af9bb203dfeef3c, type: 2}
   - {fileID: 11400000, guid: af48966415acdea45af9bb203dfeef3c, type: 2}
   - {fileID: 11400000, guid: 169070a84ac121f49a7e0257636c8d1b, type: 2}
+  - {fileID: 11400000, guid: 93dbb1175fc78ed4dbf58aaccba88e88, type: 2}
+  - {fileID: 11400000, guid: 540bf054b3ec56b408922565c5c72a8f, type: 2}
 --- !u!1 &1245860357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,6 +1580,7 @@ MonoBehaviour:
   _enemy: {fileID: 0}
   _enemyData:
   - {fileID: 11400000, guid: 2ed57ee82560a6d4baae8fd1d5a91494, type: 2}
+  - {fileID: 11400000, guid: 563f49525104ee444901506f79b0e5ee, type: 2}
   _enemyPrefab: {fileID: 4126049616576737311, guid: 60fa319f2079c2940913d7d347fab40e, type: 3}
   _enemyParent: {fileID: 715135432}
   _playerUI: {fileID: 6108256212077007631}

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ef33afcf76b234986b12533b0421ef, type: 3}
+  m_Name: Regen
+  m_EditorClassIdentifier: 
+  order: 1
+  icon: {fileID: 21300000, guid: 159229207b5924e4d871c5f33e3ebfe9, type: 3}
+  fx: {fileID: 6542513377236042348, guid: e686d5f9abae27d4598d19e94ecd8ed5, type: 3}
+  regenPower: 1

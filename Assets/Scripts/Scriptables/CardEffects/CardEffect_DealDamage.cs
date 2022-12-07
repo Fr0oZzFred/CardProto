@@ -12,7 +12,9 @@ public class CardEffect_DealDamage : CardEffect_SO
         p.transform.position = sender.ProjectileSpawnPoint.position;
         p.Init(target.transform);
 
-        target.DealDamage(values[0]);
+        target.DealDamage(values[0] * (sender.DMGStack + 1));
+        sender.ResetDMGStack();
+        sender.CheckForDMGStackEffect();
 
         return true;
     }

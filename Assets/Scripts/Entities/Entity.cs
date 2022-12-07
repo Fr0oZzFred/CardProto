@@ -25,6 +25,7 @@ public class Entity : MonoBehaviour
     protected Dictionary<Effect_SO, int> _endTurnEffects = null;
 
     protected int _health = 0;
+    protected int _dmgStack = 0;
     protected int _maxHealth = 0;
     protected int _shield = 0;
     protected int _energy = 0;
@@ -92,6 +93,14 @@ public class Entity : MonoBehaviour
         _health = Mathf.Min(_health, _maxHealth);
         _ui.ChangeHealth(_health, _maxHealth);
     }
+
+    public void StackDMG(int amount) {
+        if (amount <= 0)    return;
+
+        _dmgStack += amount;
+    }
+
+
 
     /// <summary>
     /// Adds shield, no limit
@@ -210,7 +219,7 @@ public class Entity : MonoBehaviour
 
         foreach (Effect_SO effect in effects.Keys)
         {
-            effect.Tick(this, _beginTurnEffects[effect]);
+            effect.Tick(this, effects[effect]);
         }
     }
 
@@ -238,9 +247,9 @@ public class Entity : MonoBehaviour
             effects.Add(e, _endTurnEffects[e]);
         }
 
-        foreach (Effect_SO effect in _endTurnEffects.Keys)
+        foreach (Effect_SO effect in effects.Keys)
         {
-            effect.Tick(this, _endTurnEffects[effect]);
+            effect.Tick(this, effects[effect]);
         }
     }
     #endregion
@@ -301,6 +310,21 @@ public class Entity : MonoBehaviour
     }
 
     /// <summary>
+    /// Adds some stacks to the effect, removes the effect if necessary
+    /// </summary>
+    public void AddStackFromEffect(Effect_SO effect, int nb) {
+        Dictionary<Effect_SO, int> effects = effect.order == EEffectOrder.BeginTurn ? _beginTurnEffects : _endTurnEffects;
+
+        if (effects.ContainsKey(effect)) {
+            effects[effect] += nb;
+            _ui.UpdateEffect(effect, effects[effect]);
+
+            if (effects[effect] <= 0)
+                RemoveEffect(effect);
+        }
+    }
+
+    /// <summary>
     /// Returns the number of stacks of the specified effect, 0 if the effect is not present
     /// </summary>
     public int GetStackNumber(Effect_SO effect)
@@ -322,6 +346,21 @@ public class Entity : MonoBehaviour
     public int MaxHealth => _maxHealth;
     public int Shield => _shield;
     public int Energy => _energy;
+    public int DMGStack => _dmgStack;
     public bool IsDead => _isDead;
+
+    public void ResetDMGStack() {
+        _dmgStack = 0;
+    }
+
+    public void CheckForDMGStackEffect() {
+        Effect_SO stackEffect = null;
+        foreach(var e in _beginTurnEffects.Keys) {
+            if((MeditationEffect)e != null) {
+                stackEffect = e;
+            }
+        }
+        if (stackEffect) RemoveEffect(stackEffect);
+    }
     #endregion
 }

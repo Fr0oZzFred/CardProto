@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4061eb5198a18ec42a5d6ef76ae2b9a3, type: 3}
+  m_Name: Regen
+  m_EditorClassIdentifier: 
+  cardName: Regen
+  cost: 3
+  artwork: {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
+  description: "Soigne de 1 \xE0 chaque fin de tour pendant {0} tours"
+  values: 04000000
+  effects:
+  - effect: {fileID: 11400000, guid: 6d57dc3aaaabd3240846fab86e031251, type: 2}
+    valuesIndex: 00000000
+    fx: {fileID: 6542513377236042348, guid: e686d5f9abae27d4598d19e94ecd8ed5, type: 3}
