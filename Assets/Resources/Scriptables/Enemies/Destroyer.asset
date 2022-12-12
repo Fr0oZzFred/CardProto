@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa711e01d128f74883f9a13c815ee3e, type: 3}
+  m_Name: Destroyer
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 94466c22dd53b1d45806b3a3eed4dcdd, type: 3}
+  maxHealth: 15
+  order: 1
+  actions:
+  - icon: {fileID: 21300000, guid: 38236a82ff44aaa4b972248479d5f970, type: 3}
+    effect: {fileID: 11400000, guid: b3a3093c2f8d3204e89502863293f941, type: 2}
+    values: 01000000
+    fx: {fileID: 1015939761407062974, guid: f2576d9558090f443bcd5a27d6e19201, type: 3}
+  - icon: {fileID: 21300000, guid: 897c3a3f5c4038345a7143573bbb4a40, type: 3}
+    effect: {fileID: 11400000, guid: b3a3093c2f8d3204e89502863293f941, type: 2}
+    values: 01000000
+    fx: {fileID: 1015939761407062974, guid: f2576d9558090f443bcd5a27d6e19201, type: 3}
+  - icon: {fileID: 21300000, guid: 46930b20180b59e46b73494adf53abbb, type: 3}
+    effect: {fileID: 11400000, guid: b3a3093c2f8d3204e89502863293f941, type: 2}
+    values: 01000000
+    fx: {fileID: 1015939761407062974, guid: f2576d9558090f443bcd5a27d6e19201, type: 3}
+  - icon: {fileID: 21300000, guid: 881798b77426a8f47b533dcc4767e9e5, type: 3}
+    effect: {fileID: 11400000, guid: 71342d9c93d23c14f85804fe89297348, type: 2}
+    values: 02000000
+    fx: {fileID: 5890870852051337647, guid: 85981b8090a5ba543b78cb6045eadda9, type: 3}

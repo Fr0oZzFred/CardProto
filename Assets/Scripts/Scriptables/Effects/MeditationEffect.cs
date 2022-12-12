@@ -4,10 +4,14 @@ using UnityEngine;
 public class MeditationEffect : Effect_SO
 {
     public GameObject fx = null;
+    public int maxStack;
 
     public override void Tick(Entity owner, int nb)
     {
         owner.StackDMG(nb);
+        if(owner.DMGStack > maxStack && !(owner is Enemy)) {
+            owner.DealDamage(owner.DMGStack);
+        }
 
         if (!owner.IsDead)
         {

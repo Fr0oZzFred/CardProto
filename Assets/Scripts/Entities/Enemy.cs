@@ -15,7 +15,7 @@ public class Enemy : Entity
         _shipSprite.sprite = _data.sprite;
 
         //Init action to a random one
-        _actionIndex = Random.Range(0, _data.actions.Length);
+        _actionIndex = -1;
         InitAction();
 
         InitEntity(_data.maxHealth, ui);

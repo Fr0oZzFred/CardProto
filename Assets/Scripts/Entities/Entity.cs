@@ -354,13 +354,15 @@ public class Entity : MonoBehaviour
     }
 
     public void CheckForDMGStackEffect() {
-        Effect_SO stackEffect = null;
-        foreach(var e in _beginTurnEffects.Keys) {
-            if((MeditationEffect)e != null) {
-                stackEffect = e;
-            }
+        //Create new dictionary to avoid direct reference
+        Dictionary<Effect_SO, int> effects = new Dictionary<Effect_SO, int>();
+        foreach (Effect_SO e in _beginTurnEffects.Keys) {
+            effects.Add(e, _beginTurnEffects[e]);
         }
-        if (stackEffect) RemoveEffect(stackEffect);
+
+        foreach (Effect_SO effect in effects.Keys) {
+            if(effect is MeditationEffect) RemoveEffect(effect);
+        }
     }
     #endregion
 }
