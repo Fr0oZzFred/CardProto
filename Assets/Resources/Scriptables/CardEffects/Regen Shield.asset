@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b8ef1d3b9bb6514aad50e89be6a401d, type: 3}
-  m_Name: DealDamage
+  m_Script: {fileID: 11500000, guid: 9c077fe474186424082e0f86f984792e, type: 3}
+  m_Name: Regen Shield
   m_EditorClassIdentifier: 
+  effect: {fileID: 11400000, guid: 5bf58d23f1963f8489482406d664b1f5, type: 2}

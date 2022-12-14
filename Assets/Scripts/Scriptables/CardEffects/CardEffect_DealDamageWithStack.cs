@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New deal damage", menuName = "Card effects/Deal damage")]
+[CreateAssetMenu(fileName = "New deal damage with stack", menuName = "Card effects/Deal damage with stack")]
 public class CardEffect_DealDamageWithStack : CardEffect_SO
 {
     public override bool DoEffect(Entity sender, Entity target, int[] values, GameObject fx)

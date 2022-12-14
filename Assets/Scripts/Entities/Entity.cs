@@ -30,6 +30,7 @@ public class Entity : MonoBehaviour
     protected int _shield = 0;
     protected int _energy = 0;
     protected bool _isDead = false;
+    protected bool _invincible = false;
 
     protected virtual void Start()
     {
@@ -67,8 +68,8 @@ public class Entity : MonoBehaviour
     /// </summary>
     public void DealDamage(int amount)
     {
-        if (amount <= 0)
-            return;
+        if (amount <= 0)    return;
+        if(_invincible)     return;
 
         _health -= RemoveShield(amount);
 
@@ -348,6 +349,10 @@ public class Entity : MonoBehaviour
     public int Energy => _energy;
     public int DMGStack => _dmgStack;
     public bool IsDead => _isDead;
+    public bool IsInvincible => _invincible;
+    public void SetInvincible(bool b){
+        _invincible = b;
+    }
 
     public void ResetDMGStack() {
         _dmgStack = 0;

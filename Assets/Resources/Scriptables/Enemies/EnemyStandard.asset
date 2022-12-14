@@ -17,11 +17,11 @@ MonoBehaviour:
   order: 0
   actions:
   - icon: {fileID: 21300000, guid: f95f697d66d238446b1ab717def09945, type: 3}
-    effect: {fileID: 11400000, guid: 71342d9c93d23c14f85804fe89297348, type: 2}
+    effect: {fileID: 11400000, guid: cc83f77cdbf4d60438c2cd7b90d348ad, type: 2}
     values: 06000000
     fx: {fileID: 5890870852051337647, guid: 85981b8090a5ba543b78cb6045eadda9, type: 3}
   - icon: {fileID: 21300000, guid: f95f697d66d238446b1ab717def09945, type: 3}
-    effect: {fileID: 11400000, guid: 71342d9c93d23c14f85804fe89297348, type: 2}
+    effect: {fileID: 11400000, guid: cc83f77cdbf4d60438c2cd7b90d348ad, type: 2}
     values: 06000000
     fx: {fileID: 5890870852051337647, guid: 85981b8090a5ba543b78cb6045eadda9, type: 3}
   - icon: {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
