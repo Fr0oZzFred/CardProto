@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TurnManager : Singleton<TurnManager>
 {
     [SerializeField]
     private GameObject _nextTurnButton = null;
+    [SerializeField]
+    private GameObject _restart = null;
 
     private ETurnState _state = ETurnState.PlayerBegin;
 
@@ -33,6 +36,10 @@ public class TurnManager : Singleton<TurnManager>
         StartCoroutine(HandleState());
     }
 
+    public void Restart() {
+        SceneManager.LoadScene("Game");
+    }
+
     /// <summary>
     /// Handles what should a state do
     /// </summary>
@@ -45,6 +52,9 @@ public class TurnManager : Singleton<TurnManager>
         {
             //Player begin
             case ETurnState.PlayerBegin:
+                if (BattleManager.Instance.Player.IsDead) {
+                    _restart.SetActive(true);
+                }
                 BattleManager.Instance.Player.BeginTurn();
                 GoToNextState();
                 break;
