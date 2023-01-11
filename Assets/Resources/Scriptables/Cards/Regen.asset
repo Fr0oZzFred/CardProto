@@ -15,8 +15,8 @@ MonoBehaviour:
   cardName: Regen
   cost: 3
   artwork: {fileID: 21300000, guid: a67b58d6cddcd4345b1e001340de5a76, type: 3}
-  description: "Soigne de 1 \xE0 chaque fin de tour pendant {0} tours"
-  values: 04000000
+  description: "Soigne de 2 \xE0 chaque fin de tour pendant {0} tours"
+  values: 03000000
   effects:
   - effect: {fileID: 11400000, guid: 6d57dc3aaaabd3240846fab86e031251, type: 2}
     valuesIndex: 00000000

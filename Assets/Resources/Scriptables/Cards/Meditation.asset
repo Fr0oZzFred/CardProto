@@ -16,7 +16,7 @@ MonoBehaviour:
   cost: 5
   artwork: {fileID: 21300000, guid: 0ccc508108fa6ed4fa11b4a467d7f609, type: 3}
   description: "Double les d\xE9g\xE2ts du prochain laser par le nombre de stack,
-    stack s'ajoute \xE0 lui m\xEAme.\nSi stack > 10, le joueur re\xE7oit des d\xE9g\xE2ts
+    stack s'ajoute \xE0 lui m\xEAme.\nSi stack > 16, le joueur re\xE7oit des d\xE9g\xE2ts
     \xE9quivalent au nombre de stack"
   values: 01000000
   effects:

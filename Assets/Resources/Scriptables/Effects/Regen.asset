@@ -15,4 +15,4 @@ MonoBehaviour:
   order: 1
   icon: {fileID: 21300000, guid: 159229207b5924e4d871c5f33e3ebfe9, type: 3}
   fx: {fileID: 6542513377236042348, guid: e686d5f9abae27d4598d19e94ecd8ed5, type: 3}
-  regenPower: 1
+  regenPower: 2
