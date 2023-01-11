@@ -31,6 +31,7 @@ public class Entity : MonoBehaviour
     protected int _energy = 0;
     protected bool _isDead = false;
     protected bool _invincible = false;
+    protected bool _skipTurn = false;
 
     protected virtual void Start()
     {
@@ -211,6 +212,8 @@ public class Entity : MonoBehaviour
     /// </summary>
     public virtual void BeginTurn()
     {
+
+
         //Create new dictionary to avoid direct reference
         Dictionary<Effect_SO, int> effects = new Dictionary<Effect_SO, int>();
         foreach (Effect_SO e in _beginTurnEffects.Keys)
@@ -353,7 +356,9 @@ public class Entity : MonoBehaviour
     public void SetInvincible(bool b){
         _invincible = b;
     }
-
+    public void SetSkipTurn(bool b) {
+        _skipTurn = b;
+    }
     public void ResetDMGStack() {
         _dmgStack = 0;
     }

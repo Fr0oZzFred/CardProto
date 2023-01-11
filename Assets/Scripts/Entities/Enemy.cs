@@ -23,6 +23,7 @@ public class Enemy : Entity
 
     public override void StartTurn()
     {
+        if (_skipTurn) return;
         base.StartTurn();
 
         //Do action
@@ -31,6 +32,11 @@ public class Enemy : Entity
 
     public override void EndTurn()
     {
+        if (_skipTurn) {
+            _skipTurn = false;
+            return;
+        }
+
         base.EndTurn();
 
         InitAction();
